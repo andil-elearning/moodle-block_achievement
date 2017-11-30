@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/workshop/db" VERSION="20091029" COMMENT="XMLDB file for Moodle mod/workshop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+        >
+    <TABLES>
+        <TABLE NAME="block_achievement" COMMENT="Defines achievement" NEXT="block_achievement_user">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="enable"/>
+                <FIELD NAME="enable" TYPE="int" LENGTH="1" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="compute_function"/>
+                <FIELD NAME="compute_function" TYPE="text" LENGTH="small" NOTNULL="true" SEQUENCE="false" ENUM="false" PREVIOUS="enable" NEXT="compute_function_parameters"/>
+                <FIELD NAME="compute_function_parameters" TYPE="text" LENGTH="small" NOTNULL="true" SEQUENCE="false" ENUM="false" PREVIOUS="compute_function"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="block_achievement_user" COMMENT="Define user's accomplishment" PREVIOUS="block_achievement">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" ENUM="false" NEXT="achievementid"/>
+                <FIELD NAME="achievementid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="id" NEXT="userid"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="achievementid" NEXT="timecreated"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" ENUM="false" PREVIOUS="userid"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" NEXT="achievementid"/>
+                <KEY NAME="achievementid" TYPE="foreign" FIELDS="achievementid" REFTABLE="block_achievement" REFFIELDS="id" PREVIOUS="primary" NEXT="userid"/>
+                <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id" PREVIOUS="achievementid"/>
+            </KEYS>
+        </TABLE>
+    </TABLES>
+    <STATEMENTS>
+        <STATEMENT NAME="insert achievement" TYPE="insert" TABLE="block_achievement" COMMENT="Initial insert of records on table achievement">
+            <SENTENCES>
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'login', '1')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'login', '5')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'login', '20')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'login', '50')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'login', '100')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'login', '200')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'login', '500')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'update_avatar', '1')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'update_profile', '1')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'forum_view', '1')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'forum_post', '1')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'forum_post', '10')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'pm_sent', '1')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'pm_received', '1')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'blog_view', '1')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'blog_add', '1')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'chat_talk', '1')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'bbb_join', '1')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'resource_view', '1')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'resource_view', '5')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'resource_view', '20')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'resource_view', '50')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'resource_distinct_view', '5')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'resource_distinct_view', '20')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'resource_distinct_view', '50')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'assignment_view', '1')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'assignment_view', '5')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'assignment_view', '20')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'assignment_view', '50')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'assignment_distinct_view', '5')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'assignment_distinct_view', '20')" />
+                <SENTENCE TEXT="(enable, compute_function, compute_function_parameters) VALUES (1, 'assignment_distinct_view', '50')" />
+            </SENTENCES>
+        </STATEMENT>
+    </STATEMENTS>
+</XMLDB>
