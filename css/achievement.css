@@ -1,0 +1,187 @@
+/*
+// This file is part of the achievement plugin for Moodle
+// This plugin is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This plugin is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this plugin.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/**
+ *
+ * @package achievement
+ * @copyright 2012 Andil
+ * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+.achievementEntry {
+    position: relative;
+    background: #FFFFFF;
+    padding: 5px;
+    cursor: pointer;
+    overflow: auto;
+    margin: 0 0 5px 0;
+}
+#blocks-achievement-detail .achievementEntry {
+    cursor: auto;
+}
+.achieveImgHolder {
+    float: left;
+    width: 64px;
+    height: 64px;
+    padding: 1px 9px 1px 0px;
+}
+.achieveTxtHolder {
+    position: relative;
+    height: 66px;
+}
+
+
+/* PROGRESS BAR */
+.progressbar {
+    background: url(../pix/progressbar.png) 0 0 no-repeat;
+    height: 21px;
+    color: #555;
+    position: relative;
+    display: none;
+    float: left;
+    width: 350px;
+}
+.progressbar-right {
+    float: right;
+    width: 21px;
+    display: block;
+    height: 21px;
+    background: url(../pix/progressbar.png) -2979px 0px no-repeat;
+}
+.bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../pix/progressbar.png) 0 -21px no-repeat;
+    height: 21px;
+}
+.bar-right {
+    float: right;
+    width: 19px;
+    display: block;
+    height: 19px;
+    background: url(../pix/progressbar.png) -2980px -21px no-repeat;
+}
+.status {
+    display: block;
+    height: 21px;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    width: 100px;
+    text-align: center;
+    font-family: "Trebuchet MS", Verdana, "Lucida Grande", Tahoma, Helvetica, Sans-Serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0px 1px 0px #FFFFFF;
+    padding: 3px 0 0 0;
+}
+/*---*/
+
+
+.achieveFillCover {
+    top: 2px;
+    left: 2px;
+    width: 300px;
+    background: #00ff00;
+    height: 20px;
+    z-index: 20;
+}
+.achieveSurround {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    height: 30px;
+    z-index: 30;
+}
+.achieveTxt {
+    float: left;
+    z-index: 40;
+}
+.achievePercent {
+    float: right;
+    left: 220px;
+    color: #0000ff;
+    font-size: 11px;
+}
+.achieveDate, .achievePercent {
+    float: right;
+    color: #777777;
+    font-size: 11px;
+    z-index: 40;
+}
+.achieveTxt h3 {
+    font-weight: bold;
+    font-size: 15px;
+    color: #777777;
+    margin: 0;
+}
+.achieveTxt h5 {
+    font-weight: normal;
+    font-size: 12px;
+    color: #777777;
+    margin: 0;
+}
+.achievementEntry {
+    display: block
+}
+.achieveImgHolder .pix {
+    float: left;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: #E5E5E5 url(../pix/stripe.png);
+    border: 1px solid #999;
+    -webkit-box-shadow: inset 0px 1px 5px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
+    padding: 3px;
+}
+.achieveImgHolder .pix img {
+    width: 48px;
+    height: 48px;
+}
+.achievementSelected {
+    background: #fff1b8;
+}
+.expand_icon {
+    height: 14px;
+    width: 14px;
+}
+
+
+/* NEW ACHIEVEMENT BOX */
+#colorbox ul.list {
+    margin: 0;
+    padding: 20px;
+}
+#colorbox li {
+    list-style-type: none;
+    overflow: auto;
+    margin: 0 0 5px 0;
+    border: 1px dotted #000000;
+    padding: 5px;
+    background: #F1F0E7;
+}
+#colorbox div.column.c0 {
+    float: left;
+}
+#colorbox img.icon {
+    border: 0 none;
+    height: auto;
+    margin-right: 4px;
+    vertical-align: middle;
+    width: auto;
+}
